@@ -42,7 +42,7 @@ PROJECT(visit_vtk)
 cmake_minimum_required(VERSION 3.0)
 
 SET(VISIT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR} )
-SET(VTK_DIR /home/mkim/local/vtk)
+SET(VTK_DIR $ENV{HOME}/local/vtk)
 SET(VTK_INCLUDE_DIRS ${VTK_DIR}/include/vtk-7.1)
 ADD_SUBDIRECTORY(lightweight)
 ADD_SUBDIRECTORY(full)
@@ -51,3 +51,11 @@ IF(MESA_FOUND)
     ADD_SUBDIRECTORY(osmesa)
 ENDIF(MESA_FOUND)
 
+if (VISIT_INSTALL_TARGETS)
+else()
+    install(DIRECTORY ${VISIT_SOURCE_DIR}/common/
+    DESTINATION include/common
+    FILES_MATCHING
+    PATTERN "*.h")
+
+endif()

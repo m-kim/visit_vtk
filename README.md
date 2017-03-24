@@ -1,0 +1,1 @@
+Failed attempt at splitting out visit-vtk from visit into a static lib to use some of the functionality. I ended up just taking what I needed and putting it directly into the project I was working on.
